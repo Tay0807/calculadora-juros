@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
 *{
     margin: 0px;
     padding: 0px;
     text-align: center;
     border: none;
     transition: all 1s;
+    font-family: 'Cormorant Garamond', serif;
 }
+
+/* =====================================================================================================================================================
+header
+======================================================================================================================================================= */
 
 header{
     background-color: rgb(253, 242, 191);
@@ -12,12 +18,27 @@ header{
     margin: 0px 0px 50px 0px;
 }
 
+/* ====================================================================================================================================================
+body
+======================================================================================================================================================= */
+
 body{
     background-image: url(./img/backgrounud.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size:cover;
-    height: 100%;
+    height: 100vh;
+}
+
+#form{
+    background-color: rgb(253, 242, 191);
+    border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(128, 90, 0, 0.751) 2px 2px 2px 2px;
+    width: fit-content; height: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 2vh;
 }
 
 #simples, #composto{
@@ -26,6 +47,7 @@ body{
     background-color: rgba(255, 190, 93, 0.399);
     box-shadow: rgba(108, 83, 0, 0.722) 1px 1px 1px 1px;
     border-radius: 20px;
+    font-size: 2vh;
 }
 
 #simples:hover, #composto:hover{
@@ -38,20 +60,6 @@ input{
     padding: 10px;
     border-radius: 20px;
     margin: 20px;
-}
-
-#ssimples{
-    display: block;
-}
-
-#form{
-    background-color: rgb(253, 242, 191);
-    border-radius: 20px;
-    border-radius: 20px;
-    box-shadow: rgba(128, 90, 0, 0.751) 2px 2px 2px 2px;
-    width: fit-content; height: fit-content;
-    margin: 0 auto;
-    padding: 10px;
 }
 
 #resultado, #outro, #mm, #conta{
@@ -67,6 +75,7 @@ input{
     font-style: italic;
     font-weight: bold;
 }
+
 span{
     color:rgb(255, 189, 34);
 }
