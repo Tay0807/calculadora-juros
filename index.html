@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>JUROS</title>
+</head>
+<body>
+    <header>
+        <h1>Calculadora de juros</h1>
+    </header>
+    <main>
+        <div id="form">
+            <form action="" id="ssimples">
+                <div>
+                    <label for="capital">Capital</label>
+                    <input type="text" id="capital" required>
+                </div>
+                <div>
+                    <label for="i">Taxa</label>
+                    <input type="text" id="i" required>
+                </div>
+                <div>
+                    <label for="tempo">Tempo</label>
+                    <input type="text" id="tempo" required>
+                </div>
+            </form>
+            <button id="simples">Juros simples</button>
+            <button id="composto">Juros composto</button>
+            <div id="conta"></div>
+            <div id="resultado"></div>
+            <div id="mm"></div>
+            <div id="outro"></div>
+            <div id="parcela"></div>
+        </div>
+       
+    </main>
+    
+</body>
+
+<script>
+    var bnt_simples = document.getElementById("simples")
+    var bnt_composto = document.getElementById("composto")
+    var capital = document.getElementById("capital")
+    var taxa = document.getElementById("i")
+    var tempo = document.getElementById("tempo")
+    var result = document.getElementById("resultado")
+    var outroResul = document.getElementById("outro")
+    var conta = document.getElementById("conta")
+    var mont = document.getElementById("mm")
+    var parcela = document.getElementById("parcela")
+
+    function j_simples(){
+        capital = capital.value 
+        taxa = taxa.value/100
+        tempo= tempo.value
+
+        juros = capital * taxa * tempo
+        montante = parseFloat(capital) + juros
+        var parc_valor = montante / tempo
+        conta.innerHTML = '<p id="continha"> <span>Juros</span> = '+ capital +' x '+ taxa.toFixed(2) +' x ' + tempo + '</p>'
+        result.innerHTML = '<p id="juros"><span>Juros = </span> R$'+ juros + '</p>'
+        mont.innerHTML = '<p id="continha"> <span>Montante</span> = '+ capital +' + '+ juros + '</p>'
+        outroResul.innerHTML = '<p id="montante"> <span>Montante = </span>R$'+ montante +'</p>'
+        parcela.innerHTML = '<p id="montante"> Você terá parcelas de: R$'+ parc_valor.toFixed(2) +'</p>'
+    }
+
+
+    function j_composto(){
+        capital = capital.value 
+        taxa= taxa.value/100
+        tempo = tempo.value
+
+        montante_c = capital * ( 1 + taxa)**tempo
+        juros_c= montante_c - capital
+        conta.innerHTML = '<p id="continha"> <span>Montante =</span> '+ capital +' x  ( 1 + '+ taxa +' )^'+ tempo +'</p>'
+        result.innerHTML = '<p id="montante"> <span>Montante = </span> R$'+ montante_c.toFixed(2) +'</p>'
+        mont.innerHTML = '<p id="continha"> <span>Juros = </span>'+ montante_c.toFixed(0) +' - '+ capital + '</p>'
+        outroResul.innerHTML = '<p id="juros"> <span>Juros = </span> R$'+ juros_c.toFixed(2)+ '</p>'
+    }
+
+
+    bnt_simples.addEventListener('click', j_simples)
+
+    bnt_composto.addEventListener('click', j_composto)
+</script>
+</html>
